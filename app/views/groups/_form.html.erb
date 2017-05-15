@@ -1,0 +1,38 @@
+<%= form_for(@group) do |f| %>
+  <% if @group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+      <% @group.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <h3><%= @customer_id %></h3>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :testconfig_id %><br>
+    <%= f.select :testconfig_id, Testconfig.all.collect { |c| [ c.name, c.id ] } %>
+  </div>
+  <div class="field">
+    <%= f.label :realm %><br>
+    <%= f.text_field :realm %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label "Debug" %><br>
+    <%= f.check_box :debug %>
+  </div>
+    <%= f.hidden_field :customers_id, :value => @customer_id %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

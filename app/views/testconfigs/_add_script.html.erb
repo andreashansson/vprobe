@@ -1,0 +1,3 @@
+<%= select_tag "scripts[]",
+options_from_collection_for_select(@scripts, "id", "name"),
+{:prompt => "Please select"} %>

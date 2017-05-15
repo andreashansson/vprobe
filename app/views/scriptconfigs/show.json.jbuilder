@@ -1,0 +1,1 @@
+json.partial! "scriptconfigs/scriptconfig", scriptconfig: @scriptconfig

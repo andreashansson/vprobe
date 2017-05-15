@@ -1,0 +1,63 @@
+
+<table class="table custom-table">
+  <thead>
+    <tr>
+      <th>Group name</th>
+      <th>Realm</th>
+      <th>Url</th>
+      <th>Test config</th>
+      <th>Debug</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody class="create-textfields">
+    <%= form_for(@group) do |f| %>
+      <tr>
+        <td><%= f.text_field :name %></td>
+        <td><%= f.text_field :realm %></td>
+        <td><%= f.text_field :url %></td>
+        <td><%= f.select :testconfig_id, Testconfig.all.collect { |c| [ c.name, c.id ] } %></td>
+        <td><%= f.check_box :debug %></td>
+        <td class="create"><%= f.submit 'Create' %></td>
+      </tr>
+      <%= f.hidden_field :customers_id, :value => @customer_id %>
+      <% end %>
+  </tbody>
+  <tbody>
+    <% @groups.each do |group| %>
+    <% config = Testconfig.find(group.testconfig_id) %>
+    <%= form_for(group) do |f| %>
+    <% if flash[:new_group] == group %>
+      <tr class="latest-added-group">
+    <% else %>
+      <tr>
+    <% end %>
+        <td><%= f.text_field :name %></td>
+        <td><%= f.text_field :realm %></td>
+        <td><%= f.text_field :url %></td>
+        <td><%= f.select :testconfig_id, Testconfig.all.collect { |c| [ c.name, c.id ] } %></td>
+        <td><%= f.check_box :debug %></td>
+        <td class="update"><%= f.submit 'Update' %></td>
+        <td class="delete"><%= link_to 'Delete', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <%= f.hidden_field :customers_id, :value => @customer_id %>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<% if flash[:destroy_notice] %>
+<div id="notice" class="alert alert-danger" role="alert">
+  <%= flash[:destroy_notice] %>
+</div>
+<% end %>
+<% if flash[:create] %>
+<div id="notice" class="alert alert-info" role="alert">
+  <%= flash[:create] %>
+</div>
+<% end %>
+<% if flash[:update_notice] %>
+<div id="notice" class="alert alert-success" role="alert">
+  <%= flash[:update_notice] %>
+</div>
+<% end %>

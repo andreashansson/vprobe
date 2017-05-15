@@ -1,0 +1,1 @@
+json.array! @scriptconfigs, partial: 'scriptconfigs/scriptconfig', as: :scriptconfig

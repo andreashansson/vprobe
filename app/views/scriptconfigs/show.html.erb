@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Script params:</strong>
+  <%= @scriptconfig.script_params %>
+</p>
+
+<p>
+  <strong>Config:</strong>
+  <%= @scriptconfig.config_id %>
+</p>
+
+<p>
+  <strong>Script:</strong>
+  <%= @scriptconfig.script_id %>
+</p>
+
+<%= link_to 'Edit', edit_scriptconfig_path(@scriptconfig) %> |
+<%= link_to 'Back', scriptconfigs_path %>

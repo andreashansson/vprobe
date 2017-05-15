@@ -1,0 +1,26 @@
+// Place all the styles related to the scripts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.config-form-content-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.script-list, .parameter-list, .button-list {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.main-container select {
+    margin-bottom: 0px;
+}

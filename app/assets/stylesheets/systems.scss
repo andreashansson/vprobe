@@ -1,0 +1,122 @@
+// Place all the styles related to the Systems controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.systems-table input[type="text"]:not(:hover) {
+  border-color: transparent;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+}
+
+
+.systems-table select:not(:hover) {
+    border-color: transparent;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+}
+
+
+.create-textfields input[type="text"]:not(:hover) {
+  border-color: #CCC;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+}
+
+
+.create-textfields select:not(:hover) {
+    border-color: #CCC;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0);
+}
+
+
+.systems-table {
+    width: 100%;
+}
+
+
+.systems-table th {
+    text-align: left;
+    border-bottom: 1px solid #CCC;
+
+    padding-bottom: 10px;
+}
+
+
+.systems-table td {
+    border-bottom: 1px solid #CCC;
+}
+
+
+.create-textfields td {
+    border-bottom: 2px solid #CCC;
+}
+
+
+.systems-table select {
+    margin-bottom: 0px;
+}
+
+
+.delete a {
+    box-sizing: border-box;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.delete a:hover {
+    background-color: #c9302c;
+    border-color: #ac2925;
+    text-decoration: none;
+}
+
+
+input[type="submit"], .delete a {
+    color: #fff;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.update input[value="Update"] {
+
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.update input[value="Update"]:hover {
+    background-color: #449d44;
+    border-color: #398439;
+}
+
+.create input[value="Create"], input[value="Add script"] {
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+.create input[value="Create"]:hover, input[value="Add script"]:hover {
+    background-color: #286090;
+    border-color: #204d74;
+}
+
+.update, .create, .delete {
+    width: 200px;
+    padding: 5px;
+}
+
+
+.notice {
+    margin-top: 20px;
+}

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @testconfig.name %>
+</p>
+
+<p>
+  <strong>Version:</strong>
+  <%= @testconfig.version %>
+</p>
+
+<%= link_to 'Edit', edit_testconfig_path(@config) %> |
+<%= link_to 'Back', testconfigs_path %>

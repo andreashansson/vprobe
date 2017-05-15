@@ -1,0 +1,30 @@
+<%= form_for(@testconfig) do |f| %>
+  <% if @testconfig.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@testconfig.errors.count, "error") %> prohibited this config from being saved:</h2>
+
+      <ul>
+      <% @testconfig.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div id="scriptSet">
+    <%= render partial: "add_test" %>
+  </div>
+
+  <a href="javascript:;" id="addNewScript">Add New Script</a>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<div style="display: none;" id="new_script_form">
+    <%= render partial: "add_test", locals: { testconfig: false } %>
+</div>

@@ -1,0 +1,37 @@
+<% content_for :header do %>
+  <%= javascript_include_tag 'testconfigs/configs.js' %>
+<% end %>
+
+<div class="main-container">
+
+  <%= form_for(@config) do |f| %>
+  <div class="config-form-content-container">
+      <div class="name-field"><%= f.text_field :name %></div>
+      <div class="script-list">
+        <%= render partial: 'add_script' %>
+      </div>
+      <div class="parameter-list">
+        <%= render partial: 'add_parameter' %>
+      </div>
+      <div class="button-list">
+        <button class="btn btn-mini btn-danger" type="button"><%= fa_icon "trash-o" %></button><%= hidden_field_tag 'deleted_ids[]', false, {:class => 'deleted'} %>
+      </div>
+      <div><button id="test" class="btn btn-mini btn-info" type="button"><%= fa_icon "plus" %></button></div>
+      <div><%= f.submit 'Create' %></div>
+  </div>
+  <% end %>
+
+  <div class="all-config-container">
+    <% @testconfigs.each do |config| %>
+      <div class="testconfig">
+        <span><%= config.name %></span>
+        <span colspan="3"></span>
+        <span><%= config.version %></span>
+        <span><%= link_to 'Edit', edit_testconfig_path(config) %></span>
+        <span><%= link_to 'Destroy', config, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="parameter-content" style="display:none"><%= render partial: 'add_parameter', locals: { testconfig: false } %></div>
+<div class="script-content" style="display:none"><%= render partial: 'add_script', locals: { testconfig: false } %></div>

@@ -1,0 +1,57 @@
+<table class="systems-table">
+  <thead>
+    <tr>
+      <th>Systemname</th>
+      <th>Systemid</th>
+      <th>Group</th>
+      <th colspan="2"></th>
+    </tr>
+
+  </thead>
+  <tbody class="create-textfields">
+    <tr>
+      <%= form_for(@new_system) do |f| %>
+      <td><%= f.text_field :systemname %></td>
+      <td><%= f.text_field :systemid %></td>
+      <td><%= f.select :group_id, Group.all.collect { |c| [ c.name, c.id ] } %></td>
+      <td class="create"><%= f.submit 'Create' %></td>
+      <td colspan="1"></td>
+      <% end %>
+    </tr>
+  </tbody>
+
+  <tbody>
+    <% @systems.each do |system| %>
+      <%= form_for(system) do |f| %>
+      <tr>
+        <td><%= f.text_field :systemname %></td>
+        <td><%= f.text_field :systemid %></td>
+        <!-- Om system group är nil sätt tom sträng annars skriv ut system group name -->
+        <td><%= f.select :group_id, Group.all.collect { |c| [ c.name, c.id ] } %></td>
+        <td class="update"><%= f.submit 'Update' %></td>
+        <td class="delete"><%= link_to 'Delete', system, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<% if flash[:destroy_notice] %>
+<div class="notice alert alert-danger" role="alert">
+  <div class="close" aria-label="Close"><span aria-hidden="true">&times;</span></div>
+  <%= flash[:destroy_notice] %>
+</div>
+<% end %>
+<% if flash[:update_notice] %>
+<div class="notice alert alert-success" role="alert">
+  <div class="close" aria-label="Close"><span aria-hidden="true">&times;</span></div>
+  <%= flash[:update_notice] %>
+</div>
+<% end %>
+<% if flash[:create_notice] %>
+<div class="alert alert-info notice" role="alert">
+  <div class="close" aria-label="Close"><span aria-hidden="true">&times;</span></div>
+  <strong><%= flash[:new_system].systemname %>: </strong>
+  <%= flash[:create_notice] %>
+</div>
+<% end %>

@@ -1,0 +1,8 @@
+/*
+*= require twitter/bootstrap
+ * require jquery.alerts.css
+ * require jstree/style.css
+ *= require font-awesome
+ *= require_tree .
+ *= require_self
+ */

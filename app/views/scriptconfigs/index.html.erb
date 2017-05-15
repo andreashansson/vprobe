@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Scriptconfigs</h1>
+
+<table class="table table-hover table-condensed">
+  <thead>
+    <tr>
+      <th>Script params</th>
+      <th>Config</th>
+      <th>Script</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scriptconfigs.each do |scriptconfig| %>
+      <tr>
+        <td><%= scriptconfig.script_params %></td>
+        <td><%= scriptconfig.config_id %></td>
+        <td><%= scriptconfig.script_id %></td>
+        <td><%= link_to 'Show', scriptconfig %></td>
+        <td><%= link_to 'Edit', edit_scriptconfig_path(scriptconfig) %></td>
+        <td><%= link_to 'Destroy', scriptconfig, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Scriptconfig', new_scriptconfig_path %>

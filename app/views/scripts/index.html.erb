@@ -1,0 +1,86 @@
+
+<table class="custom-table">
+  <thead>
+    <tr>
+      <th colspan="1"></th>
+      <th>Add new script</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="create-tr">
+      <%= form_for(@script) do |f| %>
+        <td colspan="1"></td>
+        <td><%= f.file_field :file %></td>
+        <td></td>
+        <td></td>
+        <td class="btn-container create"><%= f.submit 'Add script' %></td>
+        <td colspan="1"></td>
+      <% end %>
+    </tr>
+  </thead>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Update script</th>
+      <th>Script name</th>
+      <th>Version</th>
+      <th colspan="1"></th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @scripts.each do |script| %>
+    <%= form_for(script) do |f| %>
+      <tr>
+        <td><%= script.id %></td>
+        <td><%= f.file_field :file %></td>
+        <td><%= script.name %></td>
+        <td><%= script.version %></td>
+        <td class="update"><%= f.submit 'Update' %></td>
+        <td class="delete"><%= link_to 'Delete', script, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<% if notice %>
+<div class="notice alert alert-success" role="alert">
+  <%= notice %>
+</div>
+<% end %>
+
+<% if flash[:destroy_notice] %>
+<div class="notice alert alert-success" role="alert">
+  <div class="close" aria-label="Close"><span aria-hidden="true">&times;</span></div>
+  <%= flash[:deleted_script].name %>
+  <%= flash[:destroy_notice] %>
+</div>
+<% end %>
+
+<% if flash[:error_notice] %>
+  <div class="notice alert alert-danger" role="alert">
+    <div class="close" aria-label="Close"><span aria-hidden="true">&times;</span></div>
+    <% if flash[:script] %>
+      Script id: <strong><%= flash[:script].id %></strong> with Script name: <strong><%= flash[:script].name %></strong>
+    <% end %>
+    <%= flash[:error_notice] %>
+  </div>
+<% end %>
+
+<% if flash[:create_notice] %>
+<div class="notice alert alert-info" role="alert">
+  <div class="close" aria-label="Close"><span aria-hidden="true">&times;</span></div>
+  <%= flash[:new_script].name %>
+  <%= flash[:create_notice] %>
+</div>
+<% end %>
+
+<% if flash[:updated_notice] %>
+<div class="notice alert alert-success" role="alert">
+  <div class="close" aria-label="Close"><span aria-hidden="true">&times;</span></div>
+  <%= flash[:updated_script].name %>
+  <%= flash[:updated_notice] %>
+</div>
+<% end %>

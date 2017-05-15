@@ -1,0 +1,9 @@
+<div class="scriptForm">
+      <%= select_tag "scripts[]",
+      options_from_collection_for_select(@scripts, "id", "name"),
+      {:prompt => "Please select"}  %>
+      <%= text_field_tag "scriptparams[]"%>
+
+  <button class="btn btn-mini btn-danger" type="button"><%= fa_icon "trash-o" %></button>
+  <%= hidden_field_tag 'deleted_ids[]', false, {:class => 'deleted'} %>
+</div>

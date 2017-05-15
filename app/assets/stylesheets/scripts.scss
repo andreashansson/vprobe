@@ -1,0 +1,100 @@
+// Place all the styles related to the scripts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.row {
+  margin-left: 0px;
+}
+
+.create-tr td {
+  border-bottom: 2px solid #DDDDDD;
+}
+
+.custom-table {
+  width: 100%;
+}
+
+.space-between {
+  width: 35%;
+}
+
+
+
+.custom-table td {
+  padding-bottom: 5px;
+  border-top: 1px solid #DDDDDD;
+}
+
+.custom-table td, .custom-table th {
+  padding: 5px;
+  vertical-align: middle;
+  box-sizing: padding-box;
+}
+
+.custom-table th {
+  text-align: left;
+  padding-top: 15px;
+}
+
+.custom-table td.update, .custom-table td.create, .custom-table td.delete {
+  width: 100px;
+}
+
+.delete a {
+    box-sizing: border-box;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.delete a:hover {
+    background-color: #c9302c;
+    border-color: #ac2925;
+    text-decoration: none;
+}
+
+input[type="submit"], .delete a {
+  color: #fff;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.update input[value="Update"] {
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.update input[value="Update"]:hover {
+    background-color: #449d44;
+    border-color: #398439;
+}
+
+.create input[value="Create"], input[value="Add script"] {
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+.create input[value="Create"]:hover, input[value="Add script"]:hover {
+    background-color: #286090;
+    border-color: #204d74;
+}
+
+#notice, .notice {
+    margin-top: 20px;
+}

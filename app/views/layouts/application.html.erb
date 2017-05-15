@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Icomera vProbe</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tag %>
+    <%= stylesheet_link_tag Vprobe.config.identity_host + "/assets/menu.css" %>
+    <%= javascript_include_tag Vprobe.config.identity_host + "/assets/menu.js" %>
+  </head>
+  <body>
+    <div id="content-container">
+      <div class="container">
+        <ul class="nav nav-tabs">
+          <li>
+            <%= link_to 'Home', '/', 'data-page' => 'home' %>
+          </li>
+          <li>
+            <%= link_to 'Scripts', scripts_path, 'data-page' => 'scripts' %>
+          </li>
+          <li>
+            <%= link_to 'Groups', groups_path, 'data-page' => 'groups' %>
+          </li>
+          <li>
+            <%= link_to 'Systems', systems_path, 'data-page' => 'systems' %>
+          </li>
+          <li>
+            <%= link_to 'Test configs', testconfigs_path, 'data-page' => 'testconfigs' %>
+          </li>
+        </ul>
+        <div class="row">
+            <%= yield %>
+        </div>
+        <div class="footer">
+          <hr/>
+          Icomera vProbe <%= VPROBE_VERSION %> - &copy; Icomera AB <%= Time.now.year %>. All rights reserved 2017
+        </div>
+      </div>
+    </div>
+    <%= javascript_include_tag Vprobe.config.identity_host + "/api/menu.json", id: 'icomera-menu-json', 'data-appname' => Vprobe.config.appname %>
+  </body>
+</html>
